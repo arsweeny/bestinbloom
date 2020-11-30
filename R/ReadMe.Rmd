@@ -1,0 +1,104 @@
+---
+title: "Yan & Henck Inspo"
+author: "Amy Sweeny"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Yan & Henck Inspo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Palettes Available 
+
+Palettes in this package correspond to each set of outfits in every episode, named accordingly. 
+
+```{r setUp, include=FALSE}
+library(png)
+library(tidyverse)
+library(RImagePalette)
+
+PalPath <- "/Users/asweeny/bestinbloom/Outfits/"
+PalPics <- list.files(PalPath) %>% as.data.frame() %>% 
+  mutate_at(vars(.), as.character) %>% 
+  pull(.) #remove the master image 
+
+PalNames <- str_remove(PalPics, ".png") #Palette Names 
+PalPaths <- paste0(PalPath, PalPics)
+
+Eps<- list()
+for(i in 1:length(PalPaths)){
+  Eps[[i]] <- readPNG(PalPaths[[i]])
+}
+
+QualBlooms <- readRDS('/Users/asweeny/bestinbloom/Palettes/QualBlooms.rds')
+#SeqBlooms <- readRDS('Palettes/SeqBlooms.rds')
+#DivBlooms <- readRDS('Palettes/DivBlooms.rds')
+```
+
+```{r print function, include=FALSE}
+print.palette <- function(x, ...) {
+  n <- length(x)
+  old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = "", xaxt = "n", yaxt = "n", bty = "n")
+
+  rect(0, 0.9, n + 1, 1.1, col = rgb(1, 1, 1, 0.8), border = NA)
+  text((n + 1) / 2, 1, labels = attr(x, "name"), family = "Helvetica", col = "black")
+}
+```
+
+
+
+```{r Ep 1, fig.cap="Episode1", echo=FALSE}
+display_image(Eps[[1]])
+print.palette(QualBlooms[[1]])
+```
+
+
+```{r Ep 2, fig.cap="Episode2", echo=FALSE}
+display_image(Eps[[2]])
+print.palette(QualBlooms[[2]])
+```
+
+```{r Ep 3, fig.cap="Episode3", echo=FALSE}
+display_image(Eps[[3]])
+print.palette(QualBlooms[[3]])
+```
+
+```{r Ep 4, fig.cap="Episode4", echo=FALSE}
+display_image(Eps[[4]])
+print.palette(QualBlooms[[4]])
+```
+
+```{r Ep 5, fig.cap="Episode5", echo=FALSE}
+display_image(Eps[[5]])
+print.palette(QualBlooms[[5]])
+```
+
+```{r Ep 6, fig.cap="Episode6", echo=FALSE}
+display_image(Eps[[6]])
+print.palette(QualBlooms[[6]])
+```
+
+```{r Ep 7, fig.cap="Episode7", echo=FALSE}
+display_image(Eps[[7]])
+print.palette(QualBlooms[[7]])
+```
+
+```{r Finale, fig.cap="Finale", echo=FALSE}
+display_image(Eps[[8]])
+print.palette(QualBlooms[[8]])
+```
+
+
