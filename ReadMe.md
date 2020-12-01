@@ -15,8 +15,7 @@ devtools::install_github("arsweeny/bestinbloom")
 ## Usage
 
 You can create a palette with the following command, specifying type
-(“qual”, “seq”, “div”) Although none of these outfits lend themselves
-to much beyond qualitative pals\!
+(“qual”, “seq”, “div”)
 
 ``` r
 library(bestinbloom)
@@ -38,8 +37,8 @@ pal <- bloom_palette("Episode3", type="qual", n=4)
 
 ## Palettes Available
 
-Palettes in this package correspond to each set of outfits in every
-episode, named accordingly.
+Palettes in this package correspond to Yan & Henck’s outfits in each
+episode of The Big Flower Fight Season1, named accordingly.
 
 ### Episode 1
 

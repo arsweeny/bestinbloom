@@ -32,8 +32,13 @@ pal <- image_pal(PalPaths[[1]], type="qual",k=15, n=6,
 
 QualBlooms[[1]] <- pal
 
+pal <- image_pal(PalPaths[[4]], type="qual",k=12, n=6,
+                 bw=c(0.24, .8), brightness=c(0.5,0.9),  plot=TRUE)
+
+QualBlooms[[4]] <- pal
+
 pal <- image_pal(PalPaths[[6]], type="qual",k=15, n=6,
-                 bw=c(0.25, .9), brightness=c(0.4,0.9), plot=TRUE)
+                 bw=c(0.25, .9), brightness=c(0.4,0.9),  plot=TRUE)
 
 QualBlooms[[6]] <- pal
 
