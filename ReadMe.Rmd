@@ -1,29 +1,36 @@
 ---
-title: "README"
-knit: (function(input_file, encoding) {
+output: github_document
+Knit: (function(input_file, encoding) {
   out_dir <- '';
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'README.html'))})
-author: "Amy Sweeny"
-date: "`r Sys.Date()`"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: true
-vignette: >
-  %\VignetteIndexEntry{README}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
 ```
 
+
+
 # Yan & Henck Inspo 
+
+## Installation
+
+You can install the released version of bestinbloom from GitHub with:
+
+```{r}
+# install.packages("devtools")
+devtools::install_github("arsweeny/bestinbloom")
+```
 
 ## Palettes Available 
 
