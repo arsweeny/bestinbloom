@@ -27,10 +27,30 @@ knitr::opts_chunk$set(
 
 You can install the released version of bestinbloom from GitHub with:
 
-```{r}
+```{r install, message=FALSE, warning=FALSE, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("arsweeny/bestinbloom")
 ```
+
+## Usage 
+
+You can create a palette with the following command, specifying type ("qual", "seq", "div")
+
+```{r load}
+library(bestinbloom)
+```
+
+
+```{r results = 'show'}
+pal <- bloom_palette("Episode3", type="qual")
+```
+
+If you want a specific number of colors, you can also do that.
+
+```{r}
+pal <- bloom_palette("Episode3", type="qual", n=4)
+```
+
 
 ## Palettes Available 
 
@@ -74,44 +94,50 @@ print.palette <- function(x, ...) {
 ```
 
 
-
-```{r Ep 1, fig.cap="Episode1", echo=FALSE}
+### Episode 1
+```{r Ep 1, echo=FALSE}
 display_image(Eps[[1]])
 print.palette(QualBlooms[[1]])
 ```
 
-
-```{r Ep 2, fig.cap="Episode2", echo=FALSE}
+### Episode 2
+```{r Ep 2, echo=FALSE}
 display_image(Eps[[2]])
 print.palette(QualBlooms[[2]])
 ```
 
-```{r Ep 3, fig.cap="Episode3", echo=FALSE}
+### Episode 3
+```{r Ep 3, echo=FALSE}
 display_image(Eps[[3]])
 print.palette(QualBlooms[[3]])
 ```
 
-```{r Ep 4, fig.cap="Episode4", echo=FALSE}
+### Episode 4 
+```{r Ep 4,  echo=FALSE}
 display_image(Eps[[4]])
 print.palette(QualBlooms[[4]])
 ```
 
-```{r Ep 5, fig.cap="Episode5", echo=FALSE}
+### Episode 5 
+```{r Ep 5,  echo=FALSE}
 display_image(Eps[[5]])
 print.palette(QualBlooms[[5]])
 ```
 
-```{r Ep 6, fig.cap="Episode6", echo=FALSE}
+### Episode 6 
+```{r Ep 6,  echo=FALSE}
 display_image(Eps[[6]])
 print.palette(QualBlooms[[6]])
 ```
 
-```{r Ep 7, fig.cap="Episode7", echo=FALSE}
+### Episode 7 
+```{r Ep 7, echo=FALSE}
 display_image(Eps[[7]])
 print.palette(QualBlooms[[7]])
 ```
 
-```{r Finale, fig.cap="Finale", echo=FALSE}
+### Finale
+```{r Finale, echo=FALSE}
 display_image(Eps[[8]])
 print.palette(QualBlooms[[8]])
 ```
