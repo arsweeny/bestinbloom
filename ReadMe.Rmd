@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "70%"
 )
 ```
 
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the released version of bestinbloom from GitHub with:
+You can install bestinbloom from GitHub with:
 
 ```{r install, message=FALSE, warning=FALSE, eval=FALSE}
 # install.packages("devtools")
@@ -45,7 +45,7 @@ library(bestinbloom)
 pal <- bloom_palette("Episode3", type="qual")
 ```
 
-If you want a specific number of colors, you can also do that.
+If you want a specific number of colors up to 6 (qual), 8 (seq), 9 (div)
 
 ```{r}
 pal <- bloom_palette("Episode3", type="qual", n=4)
