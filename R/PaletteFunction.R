@@ -19,6 +19,17 @@ bloom_palettes <- list(
   Finale = c("#A28FB1", "#C9BB3F", "#B95D68", "#BD7B6C", "#CF80B8", "#55B5B6")
 )
 
+QualBlooms <- list(
+  Episode1 = c("#9FA386","#A3765A", "#AC2031", "#A3504F", "#3EA21B", "#A99F84"),
+  Episode2 = c("#61B0A6", "#BBB8C0", "#BF866D", "#C57284", "#B3BAA5", "#0854B1"),
+  Episode3 = c("#D09C3D", "#43A7BA", "#C8918C", "#C1657C", "#C99776", "#9DBE96"),
+  Episode4 = c("#E5BDDA", "#E3B498", "#E98C97", "#E5B3A9", "#EEA0C2", "#B2E4E1"),
+  Episode5 = c("#B3A341", "#AC518A", "#C56259","#C25B69", "#BE855B", "#6088AB"),
+  Episode6 = c("#B1A6C7", "#9F9B5C", "#A86D77", "#A7685C", "#B39CAF", "#3D4E8F"),
+  Episode7 = c("#BEAC3A", "#DB8A6D", "#EA5065", "#E36058", "#C8B3C9", "#C8906B"),
+  Finale = c("#A28FB1", "#C9BB3F", "#B95D68", "#BD7B6C", "#CF80B8", "#55B5B6")
+)
+
 SeqBlooms <- list(
   Episode1 = c('#A1665F','#A1705D','#A28065','#A49C81','#839C56','#51A310','#819976','#A92536'),
   Episode2 = c('#447719','#077B7D','#0B647D','#05375B','#032E65','#023084','#031D72','#64196D'),
@@ -55,6 +66,9 @@ DivBlooms <- list(
 #'   \code{Episode4}, \code{Episode5},  \code{Episode6},
 #'   \code{Episode7}, \code{Finale}
 #'   @importFrom graphics rgb rect par image text
+#' @param type Type of palette desired. choices are:
+#'   \code{seq}, \code{qual},  \code{div}
+#'   If omitted, uses qualitative palette
 #' @return A vector of colours.
 #' @export
 #' @keywords colors
@@ -62,33 +76,36 @@ DivBlooms <- list(
 #' bloom_palette("Episode1", type="qual")
 #' bloom_palette("Episode2", type="seq")
 
-bloom_palette <- function(name, n) {
+bloom_palette <- function(name, type=NULL, n) {
 
-  #if (type=="seq") {
-  #   pal <- SeqBlooms[[name]]
-  #}
+  if(is.null(type)) {
+     pal <- bloom_palettes[[name]]
+  } else{
 
-  #if (type=="div") {
+  if(type=="seq") {
+     pal <- SeqBlooms[[name]]
+  }
+
+  if(type=="div") {
     pal <- DivBlooms[[name]]
-  #}
+  }
 
-  #if (type=="qual") {
+  if(type=="qual") {
     pal <- QualBlooms[[name]]
 
-  #}
+  }
+  }
 
-  pal <- bloom_palettes[[name]]
-
-  if (!name %in% names(bloom_palettes))
+  if(!name %in% names(bloom_palettes))
     stop("Not a valid palette name")
 
-  if (is.null(pal))
+  if(is.null(pal))
     stop("Palette not found.")
 
-  if (is.null(pal))
+  if(is.null(pal))
     stop("Type not specified. Options are seq, qual, or div")
 
-  if (missing(n)) {
+  if(missing(n)) {
     n <- length(pal)
   }
 
