@@ -2,6 +2,9 @@ QualBlooms <- readRDS('Palettes/QualBlooms.rds')
 SeqBlooms <- readRDS('Palettes/SeqBlooms.rds')
 DivBlooms <- readRDS('Palettes/DivBlooms.rds')
 
+
+#'
+#'
 #' palette generator
 #'
 #' These are some colour palettes from a collection
@@ -57,7 +60,7 @@ bloom_palette <- function(name, type, n) {
 
   structure(out, class = "palette", name = name)
 
-  print.palette(out)
+  #print.palette(out)
 }
 
 #' @export
