@@ -8,7 +8,7 @@
 #'#' Use \code{\link{bloom_palette}} to construct palettes of desired length.
 #'
 #' @export
-QualBlooms <- list(
+bloom_palettes <- list(
   Episode1 = c("#9FA386","#A3765A", "#AC2031", "#A3504F", "#3EA21B", "#A99F84"),
   Episode2 = c("#61B0A6", "#BBB8C0", "#BF866D", "#C57284", "#B3BAA5", "#0854B1"),
   Episode3 = c("#D09C3D", "#43A7BA", "#C8918C", "#C1657C", "#C99776", "#9DBE96"),
@@ -64,20 +64,25 @@ DivBlooms <- list(
 #' bloom_palette("Episode1", type="qual")
 #' bloom_palette("Episode2", type="seq")
 
-bloom_palette <- function(name, type, n) {
+bloom_palette <- function(name, n) {
 
-  if (type=="seq") {
-     pal <- SeqBlooms[[name]]
-  }
+  #if (type=="seq") {
+  #   pal <- SeqBlooms[[name]]
+  #}
 
-  if (type=="div") {
+  #if (type=="div") {
     pal <- DivBlooms[[name]]
-  }
+  #}
 
-  if (type=="qual") {
+  #if (type=="qual") {
     pal <- QualBlooms[[name]]
 
-  }
+  #}
+
+  pal <- bloom_palettes[[name]]
+
+  if (!name %in% names(bloom_palettes))
+    stop("Not a valid palette name")
 
   if (is.null(pal))
     stop("Palette not found.")
@@ -97,7 +102,6 @@ bloom_palette <- function(name, type, n) {
 
   structure(out, class = "palette", name = name)
 
-  #print.palette(out)
 }
 
 #' @export
