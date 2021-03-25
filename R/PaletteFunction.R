@@ -55,8 +55,6 @@ DivBlooms <- list(
 #'   \code{Episode4}, \code{Episode5},  \code{Episode6},
 #'   \code{Episode7}, \code{Finale}
 #'   @importFrom graphics rgb rect par image text
-#' @param type Type of palette desired. choices are:
-#'   \code{seq}, \code{qual},  \code{div}
 #' @return A vector of colours.
 #' @export
 #' @keywords colors
